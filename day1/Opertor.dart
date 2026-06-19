@@ -26,7 +26,6 @@ void main() {
 
   var a = 10;
 
-
   var b = 5;
 
   bool result = a > b;
@@ -36,4 +35,52 @@ void main() {
 
   bool canPay = balance >= 800;
   print(canPay);
+
+  var x = 10;
+  var y = 10;
+
+  print(x == y);
+
+  //Logical Operator
+  // AND - && - When Both Condition is True Output is True
+  // OR - || - When atleast one Conditon is True Then OutPut is True
+  // ! - Opp Value
+
+  bool isLoggedIn = true;
+
+  bool hasSubscription = false;
+
+  bool canWatchMovie = isLoggedIn && hasSubscription;
+
+  print("Can Watch Movie $canWatchMovie");
+
+  bool isAdmin = true;
+
+  bool ismoderator = false;
+
+  bool canDelete = isAdmin || ismoderator;
+  print(canDelete);
+
+  //Assiggment Operator
+  int score = 10;
+
+  score += 5;
+  print(score);
+
+  //Ternary Operators - Decison /Conditoon in One Line
+
+  bool isLogin = true;
+
+  String message = isLogin ? "Welcome Good Morning" : "Please Login";
+  print(message);
+
+  // Null - Aware Opetator ??
+  // When Data Maybe Empty
+
+  String? name;
+
+  String displayName = name ?? "Guest";
+  print(displayName);
+
+  
 }
