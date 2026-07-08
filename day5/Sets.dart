@@ -27,11 +27,11 @@ void main() {
 
   Set<String> uniqueitem = items.toSet();
 
-  print(uniqueitem);
+  print(uniqueitem); //{Apple  , Banana ,}
 
   //Convert Set to List
   List<String> finalItem = uniqueitem.toList();
-  print(finalItem);
+  print(finalItem); // ["Apple" , "Banana"]
 
   //Real Example - Notification
 
