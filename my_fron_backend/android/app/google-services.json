@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "714836219217",
+    "project_id": "backendjune-774c3",
+    "storage_bucket": "backendjune-774c3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714836219217:android:f997cf8b860b9b553e6f70",
+        "android_client_info": {
+          "package_name": "com.example.my_fron_backend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvCbEiJtH7IKMbZkOn1SyrB83-zhh9qxE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

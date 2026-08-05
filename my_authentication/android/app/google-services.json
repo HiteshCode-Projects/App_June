@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "167117067529",
+    "project_id": "juneauth-4a08c",
+    "storage_bucket": "juneauth-4a08c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167117067529:android:5169e6d8997c5c6ad66fd8",
+        "android_client_info": {
+          "package_name": "com.example.my_authentication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRu6Nw9WDccbAIehy1ztDPiu1Mp1uDPYQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
