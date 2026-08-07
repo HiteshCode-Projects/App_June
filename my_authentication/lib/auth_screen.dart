@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'home_screen.dart';
 
 class AuthScreen extends StatefulWidget {
   @override
@@ -13,17 +15,35 @@ class _AuthScreenState extends State<AuthScreen> {
 
   final auth = FirebaseAuth.instance;
   //Firebase Authnetication Service Statrted
+  final firestore = FirebaseFirestore.instance;
+  //Firebase Firestore Service Started Database
 
   //SIGN UP
   void signUp() async {
     try {
-      await auth.createUserWithEmailAndPassword(
+      UserCredential user = await auth.createUserWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
-      print("User Created");
+
+      //Save useer data to Firestore
+      await firestore.collection('user').doc(user.user!.uid).set({
+        'email': emailController.text,
+        'createdAt': Timestamp.now(),
+      });
+
+      // print("User Created");
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("User Created Successfully")));
+
+      //Navigation
+      Navigator.push(context, MaterialPageRoute(builder: (_) => HomeScreen()));
     } catch (e) {
-      print(e);
+      //  print(e);
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Error creating user")));
     }
   }
 
@@ -31,16 +51,19 @@ class _AuthScreenState extends State<AuthScreen> {
 
   void login() async {
     try {
-         
-          await auth.signInWithEmailAndPassword(
+      await auth.signInWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
-      print("User Logged In");
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("User Logged In Successfully")));
 
-
+      Navigator.push(context, MaterialPageRoute(builder: (_) => HomeScreen()));
     } catch (e) {
-      print(e);
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Error logging in")));
     }
   }
 
@@ -54,8 +77,14 @@ class _AuthScreenState extends State<AuthScreen> {
 
         child: Column(
           children: [
-            TextField(controller: emailController, decoration: InputDecoration(labelText: "Email" )),
-            TextField(controller: passwordController, decoration: InputDecoration(labelText: "Password" )),
+            TextField(
+              controller: emailController,
+              decoration: InputDecoration(labelText: "Email"),
+            ),
+            TextField(
+              controller: passwordController,
+              decoration: InputDecoration(labelText: "Password"),
+            ),
 
             SizedBox(height: 20),
 
